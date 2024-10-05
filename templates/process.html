@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Lazada Links</title>
+</head>
+<body>
+    <h1>Lazada Link Converter</h1>
+    <form method="POST">
+        <label for="link">Enter Lazada link to convert:</label>
+        <input type="text" id="link" name="link" placeholder="Paste Lazada link here" required>
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if converted_link %}
+    <h2>Converted Link:</h2>
+    <p>{{ converted_link }}</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Converted</title>
+</head>
+<body>
+    <h2>Link Converted Successfully!</h2>
+    <p>Converted Link: <a href="{{ converted_link }}" target="_blank">{{ converted_link }}</a></p>
+
+    <script>
+        // Tự động sao chép link vào bộ nhớ tạm
+        navigator.clipboard.writeText("{{ converted_link }}").then(function() {
+            alert('Link copied to clipboard successfully!');
+        }, function() {
+            alert('Failed to copy the link.');
+        });
+    </script>
+</body>
+</html>
