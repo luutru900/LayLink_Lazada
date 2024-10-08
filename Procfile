@@ -1,1 +1,6 @@
-web: test -f chromedriver-mac-arm64-3/chrome_linux64 || (CONFIRM=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate "https://drive.google.com/uc?export=download&id=1IV_cxB6nKY1syVi2A0RGx7rE344H-lxF" -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1/p') && wget --load-cookies /tmp/cookies.txt "https://drive.google.com/uc?export=download&confirm=$CONFIRM&id=1IV_cxB6nKY1syVi2A0RGx7rE344H-lxF" -O chromedriver-mac-arm64-3/chrome_linux64 && rm -rf /tmp/cookies.txt && chmod +x chromedriver-mac-arm64-3/chrome_linux64) && gunicorn app:app
+web: |
+    if [ ! -f "./chromedriver-mac-arm64-3/chrome_linux64" ]; then
+        curl -L -o "./chromedriver-mac-arm64-3/chrome_linux64" "https://www.dropbox.com/scl/fi/n39le76ot4b4pvijkk5qu/chrome_linux64?rlkey=ktfur3d66rj4hf9was3pgidir&st=hbr11nbg&dl=1"
+        chmod +x ./chromedriver-mac-arm64-3/chrome_linux64
+    fi
+    gunicorn app:app
