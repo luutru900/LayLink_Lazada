@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 # Thiết lập Selenium WebDriver (hiển thị trình duyệt)
-chrome_service = Service('./chromedriver-mac-arm64-3/chromedriver')  # Đường dẫn đã được cập nhật
+chrome_service = Service('./chromedriver-mac-arm64-3/chrome_linux64')  # Đường dẫn đã được cập nhật
 
 # Khởi tạo driver để giữ session đăng nhập
 driver = None
