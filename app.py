@@ -3,7 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 import time
-import os
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -17,8 +16,6 @@ driver = None
 def start_browser():
     global driver
     if driver is None:
-        
-        print(os.listdir('./chromedriver-mac-arm64-3'))
         driver = webdriver.Chrome(service=chrome_service)
 
 def login_to_lazada(username, password):
